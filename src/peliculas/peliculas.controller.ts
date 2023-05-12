@@ -1,16 +1,13 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Put, Param, Delete, UsePipes, ValidationPipe, ParseUUIDPipe} from '@nestjs/common';
 import { PeliculasService } from './peliculas.service';
 import { CreatePeliculaDto } from './dto/create-pelicula.dto';
-import { UpdatePeliculaDto } from './dto/update-pelicula.dto';
+/* import { UpdatePeliculaDto } from './dto/update-pelicula.dto'; */
 
 @Controller('peliculas')
+@UsePipes( ValidationPipe )
 export class PeliculasController {
-  constructor(private readonly peliculasService: PeliculasService) {}
 
-  @Post()
-  create(@Body() createPeliculaDto: CreatePeliculaDto) {
-    return this.peliculasService.create(createPeliculaDto);
-  }
+  constructor(private readonly peliculasService: PeliculasService) {}
 
   @Get()
   findAll() {
@@ -18,17 +15,28 @@ export class PeliculasController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.peliculasService.findOne(+id);
+  findOne(@Param('id', ParseUUIDPipe) id: string) {
+    return this.peliculasService.findOne(id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updatePeliculaDto: UpdatePeliculaDto) {
-    return this.peliculasService.update(+id, updatePeliculaDto);
+  @Post()
+  create(@Body() createPeliculaDto: CreatePeliculaDto) {
+    return this.peliculasService.create(createPeliculaDto);
+  }
+
+  @Put(':id')
+  update(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() updatePeliculaDto: UpdatePeliculaDto
+  ) {
+    return this.peliculasService.update(id, updatePeliculaDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.peliculasService.remove(+id);
+  remove(
+    @Param('id', ParseUUIDPipe)
+    id: string
+  ) {
+    return this.peliculasService.remove(id);
   }
 }
