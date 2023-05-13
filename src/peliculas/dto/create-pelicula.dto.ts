@@ -1,47 +1,50 @@
-import { IsString, IsNotEmpty, IsNumberString, IsOptional, IsPositive} from "class-validator";
+import {
+  IsString,
+  IsNotEmpty,
+  IsNumberString,
+  IsOptional,
+} from 'class-validator';
 
 export class CreatePeliculaDto {
-
   @IsString()
   @IsNotEmpty()
-  readonly titulo : string;
-  
+  readonly titulo: string;
+
   @IsString()
   @IsNotEmpty()
   readonly imagen: string;
-  
+
   @IsNotEmpty()
   @IsNumberString()
   readonly anio: string;
-  
-  
-  @IsNotEmpty()
-  @IsString()
-  readonly sinopsis: string;
-  
-  @IsNotEmpty()
-  @IsNumberString()
-  readonly duración: string;
-  
-  //si opcional y esta vacio no corre las validaciones que vienen despues
-  @IsOptional() 
-  @IsNotEmpty()
-  @IsString()
-  readonly director?: string;
- 
-  @IsOptional() 
-  @IsNotEmpty()
-  @IsString()
-  readonly idioma?: string;
-  
-  @IsNotEmpty()
-  @IsString()
-  readonly actores : string;
 
   @IsNotEmpty()
   @IsString()
-  readonly generos : string;
-  
+  readonly sinopsis: string;
+
+  @IsNotEmpty()
+  @IsNumberString()
+  readonly duración: string;
+
+  //si opcional y esta vacio no corre las validaciones que vienen despues
+  @IsOptional()
+  @IsNotEmpty()
+  @IsString()
+  readonly director?: string;
+
+  @IsOptional()
+  @IsNotEmpty()
+  @IsString()
+  readonly idioma?: string;
+
+  @IsNotEmpty()
+  @IsString()
+  readonly actores: string;
+
+  @IsNotEmpty()
+  @IsString()
+  readonly generos: string;
+
   @IsOptional()
   @IsNotEmpty()
   @IsString()

@@ -30,7 +30,7 @@ export class PeliculasService {
 
     const nuevaPeli: Pelicula = {
       id: uuid(),
-      ...createPeliculaDto
+      ...createPeliculaDto,
     };
 
     this.peliculas.push(nuevaPeli);
