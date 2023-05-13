@@ -13,7 +13,7 @@ export class CreatePeliculaDto {
   @IsNotEmpty()
   @IsNumberString()
   @IsPositive()
-  readonly año: string;
+  readonly anio: string;
   
   
   @IsNotEmpty()

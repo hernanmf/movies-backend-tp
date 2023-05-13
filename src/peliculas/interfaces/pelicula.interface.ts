@@ -2,7 +2,7 @@ export class Pelicula {
   id: string;
   titulo : string;
   imagen: string;
-  año: string;
+  anio: string;
   sinopsis: string;
   duración: string;
   director?: string;
@@ -10,5 +10,4 @@ export class Pelicula {
   actores : string;
   generos : string;
   palabrasClave?: string;
-
 }

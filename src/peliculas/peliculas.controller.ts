@@ -1,12 +1,22 @@
-import { Controller, Get, Post, Body, Put, Param, Delete, UsePipes, ValidationPipe, ParseUUIDPipe} from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Put,
+  Param,
+  Delete,
+  UsePipes,
+  ValidationPipe,
+  ParseUUIDPipe,
+} from '@nestjs/common';
 import { PeliculasService } from './peliculas.service';
 import { CreatePeliculaDto } from './dto/create-pelicula.dto';
 import { UpdatePeliculaDto } from './dto/update-pelicula.dto';
 
 @Controller('peliculas')
-@UsePipes( ValidationPipe )
+@UsePipes(ValidationPipe)
 export class PeliculasController {
-
   constructor(private readonly peliculasService: PeliculasService) {}
 
   @Get()
@@ -27,7 +37,7 @@ export class PeliculasController {
   @Put(':id')
   update(
     @Param('id', ParseUUIDPipe) id: string,
-    @Body() updatePeliculaDto: UpdatePeliculaDto
+    @Body() updatePeliculaDto: UpdatePeliculaDto,
   ) {
     return this.peliculasService.update(id, updatePeliculaDto);
   }
@@ -35,7 +45,7 @@ export class PeliculasController {
   @Delete(':id')
   remove(
     @Param('id', ParseUUIDPipe)
-    id: string
+    id: string,
   ) {
     return this.peliculasService.remove(id);
   }
