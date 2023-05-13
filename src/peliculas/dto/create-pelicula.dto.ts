@@ -12,7 +12,6 @@ export class CreatePeliculaDto {
   
   @IsNotEmpty()
   @IsNumberString()
-  @IsPositive()
   readonly anio: string;
   
   
