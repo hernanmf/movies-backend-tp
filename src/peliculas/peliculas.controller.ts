@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, Put, Param, Delete, UsePipes, ValidationPipe, ParseUUIDPipe} from '@nestjs/common';
 import { PeliculasService } from './peliculas.service';
 import { CreatePeliculaDto } from './dto/create-pelicula.dto';
-/* import { UpdatePeliculaDto } from './dto/update-pelicula.dto'; */
+import { UpdatePeliculaDto } from './dto/update-pelicula.dto';
 
 @Controller('peliculas')
 @UsePipes( ValidationPipe )

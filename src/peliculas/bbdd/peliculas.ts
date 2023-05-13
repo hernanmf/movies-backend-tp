@@ -1,7 +1,9 @@
-import { Pelicula } from "../interfaces/pelicula.interface";
+import { Pelicula } from '../interfaces/pelicula.interface'
+import { v4 as uuid } from 'uuid';
 
 export let peliculas: Pelicula[] = [
   {
+    "id": uuid(),
     "titulo": "The Dark Knight",
     "imagen": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
     "año": "2008",
@@ -14,6 +16,7 @@ export let peliculas: Pelicula[] = [
     "palabrasClave": "dc comics, crime fighter, secret identity, scarecrow, sadism"
   },
   {
+    "id": uuid(),
     "titulo": "The Godfather",
     "imagen": "https://image.tmdb.org/t/p/w500/rPdtLWNsZmAtoZl9PK7S2wE3qiS.jpg",
     "año": "1972",
@@ -26,6 +29,7 @@ export let peliculas: Pelicula[] = [
     "palabrasClave": "italy, love at first sight, loss of father, italian american cop, 1940s"
   },
   {
+    "id": uuid(),
     "titulo": "The Shawshank Redemption",
     "imagen": "https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg",
     "año": "1994",
@@ -38,6 +42,7 @@ export let peliculas: Pelicula[] = [
     "palabrasClave": "prison, corruption, police brutality, prison cell search, escape from prison"
   },
   {
+    "id": uuid(),
     "titulo": "Kill Bill: Volumen 1",
     "imagen": "https://image.tmdb.org/t/p/w500/tBzd5rFBcoIVBolLZM5MNjzS0pM.jpg",
     "año": "2003",
@@ -50,6 +55,7 @@ export let peliculas: Pelicula[] = [
     "palabrasClave": "assassin, martial arts, kung fu, revenge"
   },
   {
+    "id": uuid(),
     "titulo": "Kill Bill: Volumen 2",
     "imagen": "https://image.tmdb.org/t/p/w500/pI9A6om9fyIlRZwlc3z9x3AbDkr.jpg",
     "año": "2004",

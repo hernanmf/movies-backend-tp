@@ -1,5 +1,5 @@
 export class Pelicula {
-
+  id: string;
   titulo : string;
   imagen: string;
   año: string;
