@@ -1,6 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { v4 as uuid } from 'uuid';
 import { CreatePeliculaDto } from './dto/create-pelicula.dto';
 import { UpdatePeliculaDto } from './dto/update-pelicula.dto';
+import { peliculas } from './bbdd/Peliculas';
 
 @Injectable()
 export class PeliculasService {
@@ -9,7 +11,7 @@ export class PeliculasService {
   }
 
   findAll() {
-    return `This action returns all peliculas`;
+    return this.peliculas;
   }
 
   findOne(id: number) {
