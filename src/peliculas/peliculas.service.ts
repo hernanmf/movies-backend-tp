@@ -40,7 +40,7 @@ export class PeliculasService {
   remove(id: string) {
     const peliABorrar = this.findOne(id);
     //si no se encuentra la peli sale por la excepcion
-    this.peliculas = this.peliculas.filter(peli => peli.id !== id);
+    this.peliculas = this.peliculas.filter((peli) => peli.id !== id);
 
     return `${peliABorrar.titulo} ${peliABorrar.anio} fue eliminda`;
   }
@@ -48,11 +48,14 @@ export class PeliculasService {
   update(id: string, updatePeliculaDto: UpdatePeliculaDto) {
     let peliGuardada = this.findOne(id);
 
-    this.peliculas = this.peliculas.map(auto => {
-      if (auto.id === id) {
-        peliGuardada = { ...peliGuardada, ...updatePeliculaDto }
+    this.peliculas = this.peliculas.map(peli => {
+      if (peli.id === id) {
+        peliGuardada = {
+          ...peliGuardada,
+          ...updatePeliculaDto,
+        }
+        return peliGuardada;
       }
-      return peliGuardada;
     });
     return peliGuardada;
   }
